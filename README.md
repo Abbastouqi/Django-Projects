@@ -21,7 +21,12 @@ Follow these instructions to set up the project on your local machine for develo
    mkdir polling_station
    cd polling_station
 
+
+## Visuals
+
 ![image](https://github.com/user-attachments/assets/83a844a2-8da6-4d16-94e5-45d692f2e4e0)
+
+![image](https://github.com/user-attachments/assets/73b6f336-df67-4811-8d0c-46485fdfb7f4)
 
 ### Create a Virtual Environment
 
@@ -36,6 +41,9 @@ On Windows:
 
 ### Install Django
 pip install django
+
+
+
 
 
 
