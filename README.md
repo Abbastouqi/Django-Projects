@@ -23,3 +23,14 @@ Follow these instructions to set up the project on your local machine for develo
 
 ![image](https://github.com/user-attachments/assets/83a844a2-8da6-4d16-94e5-45d692f2e4e0)
 
+###Create a Virtual Environment
+python -m venv env
+###Activate the Virtual Environment
+On Windows:
+.\env\Scripts\activate
+
+###Install Django
+pip install django
+
+
+
