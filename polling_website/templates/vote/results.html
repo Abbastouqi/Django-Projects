@@ -1,0 +1,15 @@
+<!-- vote/templates/vote/results.html -->
+{% extends 'vote/base.html' %}
+
+{% block content %}
+<h2>Election Results</h2>
+<ul>
+{% for result in results %}
+    <li>
+        <strong>{{ result.candidate.name }}</strong> ({{ result.candidate.symbol }}): 
+        <span style="font-size: 1.2em; color: #ff1493;">{{ result.votes }} votes</span>
+    </li>
+{% endfor %}
+</ul>
+<a href="{% url 'home' %}" class="btn">Back to Home</a>
+{% endblock %}

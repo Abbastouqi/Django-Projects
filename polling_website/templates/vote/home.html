@@ -1,0 +1,9 @@
+<!-- vote/templates/vote/home.html -->
+{% extends 'vote/base.html' %}
+
+{% block content %}
+<h1>Welcome to Polling Booth</h1>
+<a href="{% url 'add_user' %}" class="btn">Add User</a>
+<a href="{% url 'polling_box' %}" class="btn">Cast Vote</a>
+<a href="{% url 'results' %}" class="btn">View Results</a>
+{% endblock %}
