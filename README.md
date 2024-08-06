@@ -69,9 +69,11 @@ Make sure you have the following installed:
    cd shakeel_recipe_house
 
 
-![image](https://github.com/user-attachments/assets/180fc2f1-be6a-42ed-bf72-8d5e36f8328d)
 
-![image](https://github.com/user-attachments/assets/af3f6f75-8c44-48de-bc15-6d551cd65a63)
+## Visuals
+![image](https://github.com/user-attachments/assets/321c18ba-5f0b-4c2e-910d-933c22ec005f)
+
+
 
 
 
