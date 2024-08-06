@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shakeel Recipe House</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff0f5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            flex: 1;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            background-color: #222;
+            transition: background-color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #444;
+            transform: translateY(-2px);
+        }
+        .home-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .welcome-container {
+            text-align: center;
+            padding: 40px 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .welcome-container h1 {
+            color: #ff1493;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        .welcome-container p {
+            font-size: 1.2em;
+            color: #333;
+        }
+        .featured-recipes {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .featured-recipes h2 {
+            text-align: center;
+            color: #ff1493;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        .home-recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            justify-items: center;
+        }
+        .home-recipe-item {
+            text-align: center;
+            width: 150px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .home-recipe-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .home-recipe-item img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .home-recipe-item p {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        .site-footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .site-footer p {
+            margin: 5px 0;
+        }
+        .site-footer a {
+            color: #ff69b4;
+            text-decoration: none;
+        }
+        .site-footer a:hover {
+            text-decoration: underline;
+        }
+        .form-container {
+            background-color: rgba(92, 64, 51, 0.8); /* Semi-transparent dark brown */
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        
+    .form-container h2 {
+        color: #fff;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+
+    .styled-form .form-group {
+        margin-bottom: 15px;
+    }
+
+    .styled-form label {
+        display: block;
+        margin-bottom: 3px;
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .styled-form input[type="text"],
+    .styled-form input[type="file"],
+    .styled-form textarea,
+    .styled-form select {
+        width: 100%;
+        padding: 8px;
+        border: none;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .styled-form input[type="file"] {
+        padding: 5px;
+    }
+
+    .styled-form textarea {
+        height: 100px;
+        resize: vertical;
+    }
+
+    .styled-form .submit-btn {
+        background-color: #8B4513; /* Saddle Brown */
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 16px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .styled-form .submit-btn:hover {
+        background-color: #A0522D; /* Sienna */
+    }
+
+    .styled-form small {
+        color: #ddd;
+        font-size: 12px;
+    }
+
+    .styled-form h3 {
+        color: #fff;
+        margin-top: 15px;
+        font-size: 18px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+        .form-container {
+            width: 90%;
+            padding: 15px;
+        }
+    }
+    
+        .form-container h2 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    
+        .styled-form .form-group {
+            margin-bottom: 20px;
+        }
+    
+        .styled-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+    
+        .styled-form input[type="text"],
+        .styled-form input[type="file"],
+        .styled-form textarea,
+        .styled-form select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+    
+        .styled-form input[type="file"] {
+            padding: 5px;
+        }
+    
+        .styled-form textarea {
+            height: 150px;
+        }
+    
+        .styled-form .submit-btn {
+            background-color: #8B4513; /* Saddle Brown */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        .styled-form .submit-btn:hover {
+            background-color: #A0522D; /* Sienna */
+        }
+    
+        .styled-form small {
+            color: #ddd;
+        }
+    
+        .styled-form h3 {
+            color: #fff;
+            margin-top: 20px;
+        }
+        .recipe-list-container {
+            padding: 20px;
+        }
+    
+        .recipe-list-container h2 {
+            color: #8B4513;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+    
+        .recipe-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+    
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+    
+        .recipe-card img, .recipe-card .no-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+        }
+    
+        .recipe-info {
+            padding: 15px;
+        }
+    
+        .recipe-info h3 {
+            margin: 0 0 10px;
+            color: #8B4513;
+        }
+    
+        .view-recipe-btn {
+            display: inline-block;
+            background-color: #8B4513;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+    
+        .view-recipe-btn:hover {
+            background-color: #A0522D;
+        }
+    
+        /* Recipe Detail Styles */
+        .recipe-detail-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        .recipe-detail-container h2 {
+            color: #8B4513;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    
+        .recipe-meta {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+    
+        .recipe-images {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+    
+        .recipe-images img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    
+        .recipe-content h3 {
+            color: #8B4513;
+            margin-top: 20px;
+        }
+    
+        .recipe-content p {
+            line-height: 1.6;
+        }
+    
+        .no-image {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'add_recipe' %}">Add Recipe</a>
+        <a href="{% url 'recipe_list' 'desi' %}">Desi Food</a>
+        <a href="{% url 'recipe_list' 'fast' %}">Fast Food</a>
+    </nav>
+    
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2023 Shakeel Recipe House. All rights reserved.</p>
+            <p>Created by: ABBAS</p>
+            <p>Contact: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+            <p>Email: <a href="mailto:abbas@example.com">abbas@example.com</a></p>
+        </div>
+    </footer>
+</body>
+</html>

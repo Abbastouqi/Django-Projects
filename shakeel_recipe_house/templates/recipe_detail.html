@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="recipe-detail-container">
+    <h2>{{ recipe.title }}</h2>
+    <p class="recipe-meta">By {{ recipe.author.username }} | {{ recipe.created_at|date:"F d, Y" }}</p>
+    
+    <div class="recipe-images">
+        {% for image in recipe.images.all %}
+            <img src="{{ image.image.url }}" alt="{{ recipe.title }}">
+        {% empty %}
+            <div class="no-image">No Images Available</div>
+        {% endfor %}
+    </div>
+    
+    <div class="recipe-content">
+        <h3>Ingredients</h3>
+        <p>{{ recipe.ingredients|linebreaks }}</p>
+        
+        <h3>Instructions</h3>
+        <p>{{ recipe.instructions|linebreaks }}</p>
+    </div>
+</div>
+{% endblock %}
