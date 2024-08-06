@@ -42,6 +42,32 @@ On Windows:
 ### Install Django
 pip install django
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Shakeel Recipe House
+
+Welcome to Shakeel Recipe House! This project is a Django-based web application for managing and sharing recipes.
+
+## Project Setup
+
+To get started with the Shakeel Recipe House project, follow these steps.
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Python (version 3.8 or higher)
+- Django (version 3.2 or higher)
+- pip (Python package installer)
+- Virtualenv (optional but recommended)
+
+### Setting Up the Project
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/your-username/shakeel_recipe_house.git
+   cd shakeel_recipe_house
+
 
 
 
