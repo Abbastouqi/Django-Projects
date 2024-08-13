@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h2>Task List</h2>
+<ul>
+{% for task in tasks %}
+    <li>{{ task.title }} - {{ task.completed }}</li>
+{% endfor %}
+</ul>
+<a href="{% url 'tasks:add_task' %}">Add Task</a>
+{% endblock %}

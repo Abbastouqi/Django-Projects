@@ -1,0 +1,48 @@
+/* style.css */
+
+/* Center all content */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #800080; /* Dark Purple */
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Style for headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #FF69B4; /* Hot Pink */
+}
+
+/* Style for paragraphs and lists */
+p, li {
+    color: #DA70D6; /* Medium Purple */
+}
+
+/* Style for links */
+a {
+    color: #FFC0CB; /* Light Pink */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Optional: Style for buttons */
+.button {
+    padding: 10px 20px;
+    background-color: #FF1493; /* Deep Pink */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #CD5C5C; /* Tomato Red */
+}
