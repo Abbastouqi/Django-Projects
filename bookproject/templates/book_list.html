@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Book List{% endblock %}
+
+{% block content %}
+    <h2>Books</h2>
+    <a href="{% url 'book_new' %}" class="btn">Add new book</a>
+    <div class="book-list">
+        {% for book in books %}
+            <div class="book-item">
+                <img src="https://images.pexels.com/photos/3248644/pexels-photo-3248644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="{{ book.title }}">
+                <h3><a href="{% url 'book_detail' pk=book.pk %}">{{ book.title }}</a></h3>
+                <p>{{ book.author }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

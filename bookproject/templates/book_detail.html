@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block content %}
+    <h2>{{ book.title }}</h2>
+    <div class="book-detail">
+        <img src="https://images.pexels.com/photos/3847611/pexels-photo-3847611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="{{ book.title }}">
+        <p><strong>Author:</strong> {{ book.author }}</p>
+        <p><strong>Publication Date:</strong> {{ book.publication_date }}</p>
+        <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+        <a href="{% url 'book_edit1' pk=book.pk %}" class="btn">Edit</a>
+        <a href="{% url 'book_delete' pk=book.pk %}" class="btn">Delete</a>
+        <a href="{% url 'book_list' %}" class="btn">Back to list</a>
+    </div>
+{% endblock %}
