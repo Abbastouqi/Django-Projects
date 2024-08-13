@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up | CMS{% endblock %}
+
+{% block additional_styles %}
+    <style>
+        body {
+            background-color: #f3f2ef;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-serif;
+        }
+        .signup-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 24px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 1.25;
+            color: rgba(0, 0, 0, 0.9);
+            padding-bottom: 4px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.5;
+            color: rgba(0, 0, 0, 0.6);
+            margin-bottom: 4px;
+        }
+        input {
+            height: 32px;
+            padding: 0 8px;
+            border: 1px solid rgba(0, 0, 0, 0.6);
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+        button {
+            background-color: #0a66c2;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 24px;
+            cursor: pointer;
+            margin-top: 16px;
+        }
+        button:hover {
+            background-color: #004182;
+        }
+        .terms {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.6);
+            text-align: center;
+            margin-top: 16px;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 16px;
+        }
+        .login-link a {
+            color: #0a66c2;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="signup-container">
+    <h1>Make the most of your professional life</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="id_username">Username</label>
+        {{ form.username }}
+        <label for="id_password1">Password</label>
+        {{ form.password1 }}
+        <label for="id_password2">Confirm Password</label>
+        {{ form.password2 }}
+        <button type="submit">Agree & Join</button>
+    </form>
+    <p class="terms">
+        By clicking Agree & Join, you agree to the CMS User Agreement, Privacy Policy, and Cookie Policy.
+    </p>
+    <p class="login-link">
+        Already on CMS? <a href="{% url 'login' %}">Sign in</a>
+    </p>
+</div>
+{% endblock %}
