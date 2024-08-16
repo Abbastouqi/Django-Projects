@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if visitor %}Edit{% else %}Add New{% endif %} Visitor{% endblock %}
+
+{% block content %}
+<h2>{% if visitor %}Edit{% else %}Add New{% endif %} Visitor</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if visitor %}Update{% else %}Add{% endif %} Visitor</button>
+</form>
+{% endblock %}

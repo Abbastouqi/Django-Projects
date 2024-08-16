@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2>Dashboard</h2>
+<div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+    <div style="width: 45%; min-width: 300px; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.1); margin-bottom: 20px;">
+        <h3 style="color: var(--primary-color); margin-bottom: 20px;">Visitor Statistics</h3>
+        <p><strong>Today's Visitors:</strong> {{ today_count }}</p>
+        <p><strong>Yesterday's Visitors:</strong> {{ yesterday_count }}</p>
+        <p><strong>Last 7 Days Visitors:</strong> {{ last_7_days_count }}</p>
+        <p><strong>Total Visitors:</strong> {{ total_count }}</p>
+    </div>
+    <div style="width: 45%; min-width: 300px; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.1); margin-bottom: 20px;">
+        <canvas id="visitorChart"></canvas>
+    </div>
+</div>
+
+<script>
+    var ctx = document.getElementById('visitorChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Today', 'Yesterday', 'Last 7 Days', 'Others'],
+            datasets: [{
+                data: [
+                    {{ today_count }}, 
+                    {{ yesterday_count }}, 
+                    {{ last_7_days_count }}, 
+                    {{ others_count }}
+                ],
+                backgroundColor: [
+                    '#FF6384',
+                    '#36A2EB',
+                    '#FFCE56',
+                    '#4BC0C0'
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Visitor Distribution'
+            }
+        }
+    });
+</script>
+{% endblock %}

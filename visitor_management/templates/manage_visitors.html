@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Manage Visitors{% endblock %}
+
+{% block content %}
+<h2>Manage Visitors</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for visitor in visitors %}
+        <tr>
+            <td>{{ visitor.name }}</td>
+            <td>{{ visitor.date }}</td>
+            <td>{{ visitor.email }}</td>
+            <td>{{ visitor.address }}</td>
+            <td>
+            <a href="{% url 'edit_visitor' visitor.id %}" class="button">Edit</a>
+        </td>
+
+    
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
