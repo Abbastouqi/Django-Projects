@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Attendance{% endblock %}
+
+{% block content %}
+<h2>Search Attendance</h2>
+<form method="get">
+    <div class="form-group">
+        <label for="student_id">Student ID</label>
+        <input type="text" class="form-control" id="student_id" name="student_id">
+    </div>
+    <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" id="date" name="date">
+    </div>
+    <div class="form-group">
+        <label for="period">Period</label>
+        <input type="number" class="form-control" id="period" name="period">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+{% if results %}
+<h3 class="mt-4">Search Results</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Date</th>
+            <th>Period</th>
+            <th>Present</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for attendance in results %}
+        <tr>
+            <td>{{ attendance.student.name }}</td>
+            <td>{{ attendance.date }}</td>
+            <td>{{ attendance.period }}</td>
+            <td>{% if attendance.present %}Yes{% else %}No{% endif %}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}

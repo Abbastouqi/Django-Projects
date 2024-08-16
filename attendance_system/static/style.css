@@ -1,0 +1,50 @@
+/* style.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.jumbotron {
+    background-color: #e9ecef;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 0.3rem;
+}
+
+.table {
+    background-color: white;
+}
+
+.img-thumbnail {
+    max-width: 100px;
+    height: auto;
+}
+
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#video, #photo {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#startbutton {
+    margin-top: 10px;
+}
+
+#result {
+    font-weight: bold;
+    font-size: 1.2em;
+}

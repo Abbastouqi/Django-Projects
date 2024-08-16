@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Take Attendance{% endblock %}
+
+{% block content %}
+<h2>Take Attendance</h2>
+<div class="row">
+    <div class="col-md-6">
+        <video id="video" width="100%" autoplay></video>
+    </div>
+    <div class="col-md-6">
+        <canvas id="canvas" style="display:none;"></canvas>
+        <img id="photo" alt="The screen capture will appear in this box.">
+    </div>
+</div>
+<button id="startbutton" class="btn btn-primary mt-3">Take photo</button>
+
+<form method="post" id="attendanceForm">
+    {% csrf_token %}
+    <input type="hidden" name="image_data" id="image_data">
+    <button type="submit" class="btn btn-success mt-3">Mark Attendance</button>
+</form>
+
+<script>
+    // Add JavaScript to handle camera capture and form submission
+    // This is a placeholder and needs to be implemented
+</script>
+{% endblock %}

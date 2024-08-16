@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Attendance List{% endblock %}
+
+{% block content %}
+<h2>Attendance List</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Date</th>
+            <th>Period</th>
+            <th>Present</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for attendance in attendances %}
+        <tr>
+            <td>{{ attendance.student.name }}</td>
+            <td>{{ attendance.date }}</td>
+            <td>{{ attendance.period }}</td>
+            <td>{% if attendance.present %}Yes{% else %}No{% endif %}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No attendance records found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

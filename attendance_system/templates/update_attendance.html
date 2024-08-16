@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Attendance{% endblock %}
+
+{% block content %}
+<h2>Update Attendance</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="student">Student</label>
+        <input type="text" class="form-control" id="student" value="{{ attendance.student.name }}" readonly>
+    </div>
+    <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" id="date" name="date" value="{{ attendance.date|date:'Y-m-d' }}" required>
+    </div>
+    <div class="form-group">
+        <label for="period">Period</label>
+        <input type="number" class="form-control" id="period" name="period" value="{{ attendance.period }}" required>
+    </div>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="present" name="present" {% if attendance.present %}checked{% endif %}>
+        <label class="form-check-label" for="present">Present</label>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Update Attendance</button>
+</form>
+{% endblock %}
