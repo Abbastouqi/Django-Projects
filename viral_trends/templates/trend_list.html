@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Latest Trends</h2>
+    <ul>
+        {% for trend in trends %}
+            <li>{{ trend.keyword }} ({{ trend.platform.name }}) - Volume: {{ trend.volume }} - {{ trend.timestamp }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

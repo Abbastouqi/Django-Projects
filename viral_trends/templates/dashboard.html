@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Welcome, {{ business.business_name }}</h2>
+
+    <form method="get" action="{% url 'dashboard' %}">
+        <input type="text" name="q" value="{{ query|default:'' }}" placeholder="Search trends...">
+        <button type="submit" class="button">Search</button>
+    </form>
+
+    <div class="trend-graph">
+        <h3>Latest Trends for "{{ query }}" (Past 24 hours)</h3>
+        {% if trends %}
+            <div class="bar-graph">
+                {% for trend in trends %}
+                    <div class="bar" style="height: {{ trend.volume }}%;">
+                        <div class="bar-label">{{ trend.volume }}%</div>
+                    </div>
+                {% endfor %}
+            </div>
+            <p>Note: 100% represents peak popularity for the term.</p>
+        {% else %}
+            <p>No trends found for "{{ query }}".</p>
+        {% endif %}
+    </div>
+
+    <h3>Ad Suggestions</h3>
+    {% if ad_suggestions %}
+        <ul>
+            {% for suggestion in ad_suggestions %}
+                <li>{{ suggestion.suggestion }} (based on trend: {{ suggestion.trend.keyword }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No ad suggestions available.</p>
+    {% endif %}
+{% endblock %}
